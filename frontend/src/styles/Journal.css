@@ -1,0 +1,158 @@
+/* Journal Container */
+.journal-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.journal-container h2 {
+  color: #1b5e20;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Journal Form */
+.journal-form {
+  margin-bottom: 3rem;
+  background: #f8faf7;
+  position: relative;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8e0;
+}
+
+.journal-form textarea {
+  width: 90%;
+  padding: 1.5rem;
+  border: 2px solid #c8e6c9;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  resize: vertical;
+  min-height: 200px;
+  background-color: #f8fff8;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.05),
+    0 2px 6px rgba(46, 125, 50, 0.1);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2d3436;
+}
+
+.journal-form textarea:focus {
+  outline: none;
+  border-color: #66bb6a;
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.05),
+    0 4px 12px rgba(102, 187, 106, 0.2),
+    0 0 0 3px rgba(102, 187, 106, 0.15);
+  background-color: #ffffff;
+}
+
+.journal-form textarea::placeholder {
+  color: #81c784;
+  opacity: 0.7;
+  font-style: italic;
+  letter-spacing: 0.2px;
+}
+
+.journal-form button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.journal-form button:hover {
+  background-color: #1b5e20;
+  transform: translateY(-1px);
+}
+.journal-form label {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: white;
+  padding: 0 8px;
+  color: #2e7d32;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 4px;
+  z-index: 1;
+}
+/* Journal Entries */
+.journal-entries h3 {
+  color: #1b5e20;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.journal-entries > p {
+  color: #616161;
+  font-style: italic;
+  text-align: center;
+}
+
+.entry {
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #81c784;
+  position: relative;
+}
+
+.entry p {
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+}
+
+.entry-date {
+  color: #757575;
+  font-size: 0.85rem;
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .journal-container {
+    padding: 0 1rem;
+  }
+  
+  .journal-form {
+    padding: 1.5rem;
+  }
+  
+  .journal-container h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .journal-form {
+    padding: 1.2rem;
+  }
+  
+  .journal-form textarea {
+    min-height: 120px;
+  }
+  
+  .entry {
+    padding: 1.2rem;
+  }
+}

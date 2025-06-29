@@ -1,0 +1,112 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #2E7D32; /* Dark green */
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #C8E6C9; /* Light green */
+}
+
+.auth-link a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.auth-link a:hover {
+  background-color: white;
+  color: #2E7D32; /* Dark green */
+}
+
+.user-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.user-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #C8E6C9; /* Light green */
+  color: #2E7D32; /* Dark green */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 120px;
+  border: 1px solid #E8F5E9; /* Very light green */
+}
+
+.user-section:hover .dropdown {
+  display: flex;
+}
+
+.dropdown a {
+  color: #1B5E20; /* Darker green */
+  padding: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.dropdown a:hover {
+  background-color: #E8F5E9; /* Very light green */
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  color: #1B5E20; /* Darker green */
+  padding: 0.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown button:hover {
+  background-color: #E8F5E9; /* Very light green */
+}
