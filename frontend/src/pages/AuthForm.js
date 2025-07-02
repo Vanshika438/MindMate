@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import '../styles/AuthForm.css';
 import { useAuth } from '../context/AuthContext';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
 
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
@@ -10,11 +12,12 @@ function AuthForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useAuth();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const toggleMode = () => {
-        setIsLogin(prev => !prev);
-    };
+    setIsLogin((prev) => !prev);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -24,7 +27,6 @@ function AuthForm() {
       ...(isLogin ? {} : { name }),
     };
 
-    
     const endpoint = isLogin ? '/login' : '/register';
 
     try {
@@ -34,61 +36,79 @@ function AuthForm() {
       );
 
       const { token, user } = res.data;
-      login(user, token); 
-      alert(`${isLogin ? 'Login' : 'Signup'} successful!`);
-      navigate('/profile'); 
+      login(user, token);
+      navigate('/dashboard');
     } catch (err) {
       alert(err.response?.data?.message || 'Something went wrong.');
       console.error(err);
     }
-};
+  };
 
-    return (
-        <div className="auth-container">
-            <div className="auth-box">
-                <h2>{isLogin ? 'Login to MindMate' : 'Create an Account'}</h2>
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      const decoded = jwtDecode(credentialResponse.credential);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/google-login`, {
+        token: credentialResponse.credential,
+      });
 
-                <form onSubmit={handleSubmit}>
-                    {!isLogin && (
-                        <input
-                            type="text"
-                            placeholder="Name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
-                    )}
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
+      const { user, token } = res.data;
+      login(user, token);
+      navigate('/dashboard');
+    } catch (err) {
+      alert('Google login failed');
+      console.error(err);
+    }
+  };
 
-                    <button type="submit" className="auth-btn">
-                        {isLogin ? 'Login' : 'Signup'}
-                    </button>
-                </form>
+  return (
+    <div className="auth-container">
+      <div className="auth-box">
+        <h2>{isLogin ? 'Login to MindMate' : 'Create an Account'}</h2>
 
-                <p className="toggle-text">
-                    {isLogin ? "Don't have an account?" : "Already have an account?"}
-                    <button onClick={toggleMode} className="toggle-btn">
-                        {isLogin ? 'Signup' : 'Login'}
-                    </button>
-                </p>
-            </div>
+        <form onSubmit={handleSubmit}>
+          {!isLogin && (
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          )}
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button type="submit" className="auth-btn">
+            {isLogin ? 'Login' : 'Signup'}
+          </button>
+        </form>
+
+        <div className="google-login-wrapper">
+          <p>Or continue with</p>
+          <GoogleLogin onSuccess={handleGoogleSuccess} onError={() => alert("Google login failed")} />
         </div>
-    );
+
+        <p className="toggle-text">
+          {isLogin ? "Don't have an account?" : "Already have an account?"}
+          <button onClick={toggleMode} className="toggle-btn">
+            {isLogin ? 'Signup' : 'Login'}
+          </button>
+        </p>
+      </div>
+    </div>
+  );
 }
 
 export default AuthForm;
-
-

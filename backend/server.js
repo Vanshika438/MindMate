@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 const journalRoutes = require('./routes/journal');
 const aiRoutes = require('./routes/ai');
-
+const moodRoutes=require('./routes/mood');
 dotenv.config();
 
 const app = express();
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/journal', journalRoutes);
 app.use('/api/ai', aiRoutes);
-
+app.use('/api/mood', moodRoutes);
 const PORT = process.env.PORT || 5000;
 
 mongoose

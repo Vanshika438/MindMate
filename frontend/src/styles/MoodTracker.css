@@ -1,0 +1,220 @@
+/* Mood Tracker Styles */
+.mood-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  color: #2c3e50;
+}
+
+.mood-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mood-header h2 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-message {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+/* Mood Form */
+.mood-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.mood-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mood-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  text-align: center;
+}
+
+.mood-option:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mood-option.selected {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+.mood-emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.mood-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.mood-note textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 80px;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.mood-note textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.submit-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Mood History */
+.mood-history {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.mood-history h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #7f8c8d;
+}
+
+/* Mood Timeline */
+.mood-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mood-entry {
+  padding: 1rem 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid;
+  transition: all 0.3s ease;
+}
+
+.mood-entry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.mood-entry-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.mood-emoji {
+  font-size: 1.5rem;
+}
+
+.mood-value {
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.mood-date {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.mood-note-text {
+  color: #34495e;
+  line-height: 1.6;
+  padding-left: 2.5rem;
+  font-size: 0.95rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .mood-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .mood-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .mood-selector {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+  
+  .mood-emoji {
+    font-size: 1.8rem;
+  }
+  
+  .mood-label {
+    font-size: 0.8rem;
+  }
+  
+  .mood-entry-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .mood-date {
+    width: 100%;
+    padding-left: 2.5rem;
+  }
+  
+  .mood-note-text {
+    padding-left: 0;
+  }
+}

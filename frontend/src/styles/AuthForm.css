@@ -1,77 +1,96 @@
+/* Auth Form Styles */
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #E8F5E9; /* Very light green */
-  padding: 1rem;
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .auth-box {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
-  padding: 2rem;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 400px;
   text-align: center;
 }
 
 .auth-box h2 {
-  color: #2E7D32; /* Dark green */
+  color: #2c3e50;
   margin-bottom: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .auth-box form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .auth-box input {
-  padding: 0.75rem;
-  border: 1px solid #C8E6C9; /* Light green */
-  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .auth-box input:focus {
   outline: none;
-  border-color: #2E7D32; /* Dark green */
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
 .auth-btn {
-  background-color: #2E7D32; /* Dark green */
+  background-color: #3498db;
   color: white;
   border: none;
-  padding: 0.75rem;
-  border-radius: 4px;
+  padding: 0.8rem;
+  border-radius: 8px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
 }
 
 .auth-btn:hover {
-  background-color: #1B5E20; /* Darker green */
+  background-color: #2980b9;
 }
 
 .toggle-text {
-  margin-top: 1rem;
-  color: #666;
+  color: #7f8c8d;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
 }
 
 .toggle-btn {
   background: none;
   border: none;
-  color: #2E7D32; /* Dark green */
-  font-weight: 500;
+  color: #3498db;
+  font-weight: 600;
   cursor: pointer;
-  margin-left: 0.5rem;
-  padding: 0;
+  padding: 0.2rem 0.5rem;
+  margin-left: 0.3rem;
+  transition: all 0.3s ease;
 }
 
 .toggle-btn:hover {
+  color: #2980b9;
   text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .auth-box {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+  }
+  
+  .auth-box h2 {
+    font-size: 1.5rem;
+  }
 }

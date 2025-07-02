@@ -1,158 +1,215 @@
-/* Journal Container */
+/* Journal Styles */
 .journal-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  color: #2c3e50;
 }
 
-.journal-container h2 {
-  color: #1b5e20;
-  font-size: 2rem;
-  margin-bottom: 2rem;
+.journal-header {
   text-align: center;
-  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.journal-header h2 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-message {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+.journal-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .journal-content {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* Journal Form */
 .journal-form {
-  margin-bottom: 3rem;
-  background: #f8faf7;
-  position: relative;
-  padding: 2rem;
+  background: white;
+  padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e2e8e0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: fit-content;
+  position: sticky;
+  top: 1rem;
+}
+
+.prompt-section {
+  background-color: #f0f7ff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #3498db;
+}
+
+.prompt-text {
+  font-style: italic;
+  color: #3498db;
+  margin-bottom: 0.5rem;
+}
+
+.new-prompt-btn {
+  background: none;
+  border: none;
+  color: #3498db;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.new-prompt-btn:hover {
+  background-color: rgba(52, 152, 219, 0.1);
 }
 
 .journal-form textarea {
-  width: 90%;
-  padding: 1.5rem;
-  border: 2px solid #c8e6c9;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  line-height: 1.8;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.6;
   resize: vertical;
   min-height: 200px;
-  background-color: #f8fff8;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 
-    inset 0 1px 3px rgba(0, 0, 0, 0.05),
-    0 2px 6px rgba(46, 125, 50, 0.1);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #2d3436;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
 .journal-form textarea:focus {
   outline: none;
-  border-color: #66bb6a;
-  box-shadow: 
-    inset 0 1px 3px rgba(0, 0, 0, 0.05),
-    0 4px 12px rgba(102, 187, 106, 0.2),
-    0 0 0 3px rgba(102, 187, 106, 0.15);
-  background-color: #ffffff;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
-.journal-form textarea::placeholder {
-  color: #81c784;
-  opacity: 0.7;
-  font-style: italic;
-  letter-spacing: 0.2px;
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .journal-form button {
-  background-color: #2e7d32;
+  background-color: #3498db;
   color: white;
   border: none;
-  padding: 0.8rem 1.8rem;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.journal-form button:hover {
-  background-color: #1b5e20;
-  transform: translateY(-1px);
-}
-.journal-form label {
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  background: white;
-  padding: 0 8px;
-  color: #2e7d32;
-  font-size: 0.9rem;
-  font-weight: 500;
-  border-radius: 4px;
-  z-index: 1;
-}
-/* Journal Entries */
-.journal-entries h3 {
-  color: #1b5e20;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.journal-entries > p {
-  color: #616161;
-  font-style: italic;
-  text-align: center;
+.journal-form button:hover:not(:disabled) {
+  background-color: #2980b9;
 }
 
-.entry {
+.journal-form button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.char-count {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+/* Journal Entries */
+.journal-entries {
   background: white;
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid #81c784;
-  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.entry p {
-  color: #333;
-  line-height: 1.7;
-  margin-bottom: 0.5rem;
+.journal-entries h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.no-entries {
+  color: #7f8c8d;
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.entries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.entry-card {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border-left: 4px solid #3498db;
+}
+
+.entry-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.entry-content {
+  margin-bottom: 1rem;
+  line-height: 1.6;
   white-space: pre-wrap;
 }
 
+.entry-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
 .entry-date {
-  color: #757575;
-  font-size: 0.85rem;
-  display: block;
-  text-align: right;
   font-style: italic;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .journal-container {
-    padding: 0 1rem;
-  }
-  
-  .journal-form {
-    padding: 1.5rem;
-  }
-  
-  .journal-container h2 {
-    font-size: 1.8rem;
-  }
+.entry-mood {
+  font-size: 1.2rem;
 }
 
-@media (max-width: 480px) {
-  .journal-form {
-    padding: 1.2rem;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .journal-container {
+    padding: 1.5rem 1rem;
   }
   
-  .journal-form textarea {
-    min-height: 120px;
-  }
-  
-  .entry {
-    padding: 1.2rem;
+  .journal-header h2 {
+    font-size: 1.8rem;
   }
 }

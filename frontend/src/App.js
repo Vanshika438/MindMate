@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import AuthForm from './pages/AuthForm';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
@@ -13,11 +13,11 @@ import AISuggestions from './pages/AISuggestions';
 
 function App() {
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path='/auth' element={<AuthForm />} />
+        <Route path="/auth" element={<AuthForm />} />
         <Route
           path="/profile"
           element={
@@ -51,7 +51,7 @@ function App() {
           }
         />
         <Route
-          path="/ai-suggestions"
+          path="/ai/suggest"
           element={
             <ProtectedRoute>
               <AISuggestions />
@@ -59,7 +59,7 @@ function App() {
           }
         />
       </Routes>
-    </Router>
+    </>
   );
 }
 

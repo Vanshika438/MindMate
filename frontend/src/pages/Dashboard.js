@@ -44,7 +44,7 @@ const Dashboard = () => {
           <p>Personalized recommendations</p>
           <button
             className="dashboard-btn"
-            onClick={() => navigate('/ai')}
+            onClick={() => navigate('/ai/suggest')}
           >
             Get Suggestions
           </button>
@@ -65,13 +65,13 @@ const Dashboard = () => {
       <div className="quick-actions">
         <h2>Quick Actions</h2>
         <div className="action-buttons">
-          <button className="action-btn breath-btn">
+          <button className="action-btn breath-btn"disabled>
             Breathing Exercise
           </button>
-          <button className="action-btn meditate-btn">
+          <button className="action-btn meditate-btn"disabled>
             5-Min Meditation
           </button>
-          <button className="action-btn emergency-btn">
+          <button className="action-btn emergency-btn"disabled>
             Emergency Resources
           </button>
         </div>
