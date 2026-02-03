@@ -24,7 +24,7 @@ exports.googleLogin = async (req, res) => {
       user = await User.create({
         name,
         email,
-        password: googleId, // or a dummy password
+        password: googleId, 
         isGoogleUser: true,
       });
     }
